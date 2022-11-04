@@ -24,4 +24,5 @@ def set_wallpaper(time):
     subprocess.Popen(OSA_SCRIPT.format(
         path), shell=True)
 
-set_wallpaper(sys.argv[1])
+if __name__ == "__main__":
+    set_wallpaper(sys.argv[1])
