@@ -26,3 +26,5 @@ def set_wallpaper(time):
 
 if __name__ == "__main__":
     set_wallpaper(sys.argv[1])
+
+
