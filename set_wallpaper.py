@@ -1,9 +1,10 @@
 import os
 import pathlib
-import random
 import subprocess
+import sys
 
-FOLDER = 'test'
+IMG_EXT = '.jpg'
+IMG_FOLDER = 'dynamic'
 
 OSA_SCRIPT = """/usr/bin/osascript<<END 
 tell application "System Events"
@@ -13,19 +14,14 @@ tell application "System Events"
 end tell
 END"""
 
-def set_wallpaper():
+def set_wallpaper(time):
     os.chdir('/Users/eme/Wallpapers+')
-    files = os.listdir(FOLDER)
-    random.shuffle(files)
-    first_file = files[0]
-
     path = os.path.join(
         pathlib.Path().absolute(),
-        FOLDER,
-        first_file
+        IMG_FOLDER,
+        time + IMG_EXT
     )
-
     subprocess.Popen(OSA_SCRIPT.format(
         path), shell=True)
 
-set_wallpaper()
+set_wallpaper(sys.argv[1])
