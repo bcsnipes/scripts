@@ -14,7 +14,7 @@ tell application "System Events"
 end tell
 END"""
 
-def set_wallpaper(time):
+def change_wallpaper(time):
     os.chdir('/Users/eme/Wallpapers+')
     path = os.path.join(
         pathlib.Path().absolute(),
@@ -25,6 +25,6 @@ def set_wallpaper(time):
         path), shell=True)
 
 if __name__ == "__main__":
-    set_wallpaper(sys.argv[1])
+    change_wallpaper(sys.argv[1])
 
 
