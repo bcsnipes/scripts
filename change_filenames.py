@@ -2,23 +2,17 @@ import datetime
 import os
 import sys
 
-def change_filenames(path, prefix):
+def change_filenames(path, prefix, extension = ".jpg"):
   for file_name in os.listdir(path):
-    # Extract
-    birthtime = os.stat(path).st_birthtime
+    birthtime = os.stat(f"{path}/{file_name}").st_birthtime
     converted_datetime = datetime.datetime.fromtimestamp(birthtime)
 
-    # Format
-    formatted = (converted_datetime.strftime(f'/{prefix}_%y%m%d%H:%M%S'))
-    source = path + "/" + file_name
-    destination = path + formatted + '.jpg'
+    formatted = (converted_datetime.strftime(f'{prefix}_%y%m%d_%H%M%S'))
+    source = f"{path}/{file_name}"
+    destination = f"{path}/{formatted}.{extension}"
 
-    # Rename
     os.rename(source, destination)
 
-    # print(destination)
-
-
 if __name__ == "__main__":
-  change_filenames(sys.argv[1], sys.argv[2])
+  change_filenames(sys.argv[1], sys.argv[2], sys.argv[3])
 
