@@ -2,7 +2,15 @@
 
 This repo is a collection of scripts.
 
-## Set Wallpaper
+## Change File Names
+
+To run:
+
+```
+python {pathToScript} {pathToFolder}
+```
+
+## Change Wallpaper
 
 This script enables you to change the desktop wallpaper on OSX.
 
